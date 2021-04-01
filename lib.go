@@ -65,7 +65,7 @@ func sendNotif(title, message, icon string, time int) {
 	if icon != "" {
 		exec.Command(CMD, title, message, "-i", icon, "-t", strconv.Itoa(time)).Run()
 	} else {
-		exec.Command(CMD, title, message, "-t", string(time)).Run()
+		exec.Command(CMD, title, message, "-t", strconv.Itoa(time)).Run()
 	}
 
 }

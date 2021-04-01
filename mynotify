@@ -36,21 +36,22 @@ uid=$(id -u $user)
 
 
 
-if [ -z "$TIME" ]
+if [ -z "$ICON" ]
 then
-    if [ -z "$ICON" ]
+    if [ -z "$TIME" ]
     then
         sudo -u $user DISPLAY=$display DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$uid/bus notify-send "$1" "$2"
     else
         sudo -u $user DISPLAY=$display DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$uid/bus notify-send "$1" "$2" -t "$TIME"
     fi
 else
-    if [ -z "$ICON" ]
+    if [ -z "$TIME" ]
     then
         sudo -u $user DISPLAY=$display DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$uid/bus notify-send "$1" "$2"  -i "$ICON"
     else
         sudo -u $user DISPLAY=$display DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$uid/bus notify-send "$1" "$2" -t "$TIME" -i "$ICON"
     fi
 fi
+
 
 
